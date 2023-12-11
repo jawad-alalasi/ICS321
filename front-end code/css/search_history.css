@@ -1,0 +1,23 @@
+/* Styles for the details toggle and the rotating arrow */
+.details-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px; /* Spacing above each collapsible toggle */
+}
+
+.details-toggle .form-control {
+    margin-left: 10px; /* Spacing between checkboxes and textbox */
+    flex-grow: 1; /* makes the textbox grow to fill space */
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.collapse.show + .details-toggle .arrow {
+    transform: rotate(180deg); /* rotate arrow when details are shown */
+}
+
+/* Additional styling can be added here as needed */
