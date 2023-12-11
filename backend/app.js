@@ -62,8 +62,6 @@ app.post('/PERSON', function(req, res, next) {
     
     });
 
-   
-
     res.redirect('/');
 
 });
@@ -108,7 +106,6 @@ app.get('/procecs', function(req, res, next) {
         console.log('record inserted');
     });
   
-    /* res.render('contact-us', { title: 'Contact-Us' }) ; */
 });
 
 app.post('/bloodrive', function(req, res, next) {
@@ -116,15 +113,12 @@ app.post('/bloodrive', function(req, res, next) {
     var to = req.body.to;
     var location = req.body.location;
     
-
-
     var sqlin = `INSERT INTO BLOOD_DRIVE (FROM_DATE, TO_DATE, LOCATION) VALUES ("${from}", "${to}", "${location}")`;
     db.query(sqlin, function(err, result) {
         if (err) throw err;
         console.log('record inserted');
     });
   
-    /* res.render('contact-us', { title: 'Contact-Us' }) ; */
 });
 
 
