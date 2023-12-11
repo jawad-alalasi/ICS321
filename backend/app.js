@@ -41,7 +41,7 @@ app.post('/PERSON', function(req, res, next) {
     var address = req.body.address
     var bloodtypei = req.body.bloodtype
  
-    var sqlin = `INSERT INTO Person (name, age, email, phone, address) VALUES ("${name}", "${age}", "${email}", "${phone}", ${address}")`;
+    var sqlin = `INSERT INTO Person (name, age, email, phone, address) VALUES ("${name}", "${age}", "${email}", "${phone}", "${address}")`;
     db.query(sqlin, function(err, result) {
         if (err) throw err;
         console.log('record inserted');
@@ -89,7 +89,7 @@ app.post('/users', function(req, res, next) {
     var role = req.body.role;
 
  
-    var sqlin = `INSERT INTO users (username, password, id, role) VALUES ("${username}", "${password}", "${id}", ${role}")`;
+    var sqlin = `INSERT INTO users (username, password, id, role) VALUES ("${username}", "${password}", "${id}", "${role}")`;
     db.query(sqlin, function(err, result) {
         if (err) throw err;
         console.log('record inserted');
@@ -111,6 +111,21 @@ app.get('/procecs', function(req, res, next) {
     /* res.render('contact-us', { title: 'Contact-Us' }) ; */
 });
 
+app.post('/bloodrive', function(req, res, next) {
+    var from = req.body.from;
+    var to = req.body.to;
+    var location = req.body.location;
+    
+
+
+    var sqlin = `INSERT INTO BLOOD_DRIVE (FROM_DATE, TO_DATE, LOCATION) VALUES ("${from}", "${to}", "${location}")`;
+    db.query(sqlin, function(err, result) {
+        if (err) throw err;
+        console.log('record inserted');
+    });
+  
+    /* res.render('contact-us', { title: 'Contact-Us' }) ; */
+});
 
 
 // port must be set to 3000 because incoming http requests are routed from port 80 to port 8080
