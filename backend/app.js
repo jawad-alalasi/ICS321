@@ -70,7 +70,7 @@ app.post('/PERSON', function(req, res, next) {
  
 app.post('/medicalhistory', function(req, res, next) {
     var idhis=reg.body.id;
-    var vc= `SELECT FROM MEDICAL_HISTORY WHERE ID="${idhis}" `
+    var vc= `SELECT FROM MEDICAL_HISTORY WHERE ID="${idhis}" `;
     db.query(vc, function(err, result) {
         if (err) throw err;
         var datam=result;
@@ -100,17 +100,13 @@ app.post('/users', function(req, res, next) {
 
 app.get('/procecs', function(req, res, next) {
 
-    var vc= `SELECT * FROM REQUEST `
+    var vc= `SELECT * FROM REQUEST `;
     db.query(vc, function(err, result) {
         if (err) throw err;
         var requestsf=result
         res.render('procecs.njk', requestsf) 
         console.log('record inserted');
     });
-  
-  
-  
-  
   
     /* res.render('contact-us', { title: 'Contact-Us' }) ; */
 });
