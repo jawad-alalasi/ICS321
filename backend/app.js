@@ -51,32 +51,34 @@ app.post('/PERSON', function(req, res, next) {
 
     db.query(sqlina, function(err, result) {
         if (err) throw err;
-        var idblo=result.id;
-        console.log(idblo);
+        let idblo=result.id;
+        console.log();
+        var sqlinb = `INSERT INTO BLOOD_TYPE (TYPE) VALUES ("${bloodtypei}") WHERE ID="${idblo}"`;
+
+        db.query(sqlinb, function(err, result) {
+            if (err) throw err;
+            console.log('record inserted');
+        });
+    
     });
 
-    var sqlinb = `INSERT INTO BLOOD_TYPE (TYPE) VALUES ("${bloodtypei}") WHERE ID="${idblo}"`;
-
-    db.query(sqlinb, function(err, result) {
-        if (err) throw err;
-        console.log('record inserted');
-    });
-
+   
 
     res.redirect('/');
 
 });
  
-app.get('/medicalhistory/:id', function(req, res, next) {
-    var idhis=req.params.id
+app.post('/medicalhistory', function(req, res, next) {
+    var idhis=reg.body.id;
     var vc= `SELECT FROM MEDICAL_HISTORY WHERE ID="${idhis}" `
     db.query(vc, function(err, result) {
         if (err) throw err;
         var datam=result;
+        res.render('medicalhistory.njk', datam) 
         console.log('record inserted');
     });
 
-     res.render('medicalhistory.njk', datam) ; 
+     ; 
 });
 
 
