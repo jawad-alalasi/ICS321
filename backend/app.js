@@ -98,6 +98,25 @@ app.post('/users', function(req, res, next) {
 });
 
 
+app.get('/procecs', function(req, res, next) {
+
+    var vc= `SELECT * FROM REQUEST `
+    db.query(vc, function(err, result) {
+        if (err) throw err;
+        var requestsf=result
+        res.render('procecs.njk', requestsf) 
+        console.log('record inserted');
+    });
+  
+  
+  
+  
+  
+    /* res.render('contact-us', { title: 'Contact-Us' }) ; */
+});
+
+
+
 // port must be set to 3000 because incoming http requests are routed from port 80 to port 8080
 app.listen(3000, function () {
     console.log('Node app is running on port 3000');
