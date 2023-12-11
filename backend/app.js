@@ -33,7 +33,7 @@ app.get('/', function(req, res, next) {
     /* res.render('contact-us', { title: 'Contact-Us' }) ; */
 });
  
-app.post('/contact-us', function(req, res, next) {
+app.post('/PERSON', function(req, res, next) {
     var name = req.body.name;
     var age = req.body.age;
     var email = req.body.email;
@@ -52,15 +52,14 @@ app.post('/contact-us', function(req, res, next) {
     db.query(sqlina, function(err, result) {
         if (err) throw err;
         var idblo=result.id;
-        console.log(result.id);
+        console.log(idblo);
     });
 
     var sqlinb = `INSERT INTO BLOOD_TYPE (TYPE) VALUES ("${bloodtypei}") WHERE ID="${idblo}"`;
 
     db.query(sqlinb, function(err, result) {
         if (err) throw err;
-        var idblo=result.id;
-        console.log(result.id);
+        console.log('record inserted');
     });
 
 
@@ -81,8 +80,20 @@ app.get('/medicalhistory/:id', function(req, res, next) {
 });
 
 
+app.post('/users', function(req, res, next) {
+    var username = req.body.Username;
+    var id = req.body.id;
+    var password = req.body.password;
+    var role = req.body.role;
 
+ 
+    var sqlin = `INSERT INTO users (username, password, id, role) VALUES ("${username}", "${password}", "${id}", ${role}")`;
+    db.query(sqlin, function(err, result) {
+        if (err) throw err;
+        console.log('record inserted');
+    });
 
+});
 
 
 // port must be set to 3000 because incoming http requests are routed from port 80 to port 8080
