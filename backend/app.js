@@ -124,6 +124,15 @@ app.post('/bloodrive', function(req, res, next) {
   /*res.redirect()*/
 });
 
+app.post('/bloodcount', function(req, res, next) {
+    var sqlcoun = "SELECT blood_type.TYPE AS `blood type`,COUNT(blood_type.TYPE) AS `count`FROM blood_type GROUP BY blood_type.TYPE";
+    db.query(sqlcoun, function(err, result) {
+        if (err) throw err;
+        res.render('bloodcount', result) 
+        console.log('record inserted');
+    });
+  /*res.redirect()*/
+});
 
 // port must be set to 3000 because incoming http requests are routed from port 80 to port 8080
 app.listen(3000, function () {
