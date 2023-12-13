@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/admin_process_request_blood.css">
+    <title>Process Blood Donation Request</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Process Blood Donation Request</h1>
+
+        <!-- Form for Processing Request -->
+        <form id="processRequestForm" class="mb-4">
+            <div class="form-group">
+                <label for="from">From:</label>
+                <input type="text" class="form-control" id="from" placeholder="Enter Donor ID">
+            </div>
+            <div class="form-group">
+                <label for="fromName">From Name:</label>
+                <input type="text" class="form-control" id="fromName" placeholder="Enter Donor Name">
+            </div>
+            <div class="form-group">
+                <label for="to">To:</label>
+                <input type="text" class="form-control" id="to" placeholder="Enter Recipient ID">
+            </div>
+            <div class="form-group">
+                <label for="toName">To Name:</label>
+                <input type="text" class="form-control" id="toName" placeholder="Enter Recipient Name">
+            </div>
+            <button type="submit" class="btn btn-primary" id="process_request_button">Process Request</button>
+        </form>
+
+        <!-- Table for Displaying Requests -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Donor</th>
+                    <th>Recipient</th>
+                    <th>Date Requested</th>
+                    <th>Date Fulfillment</th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Row 1 -->
+                <tr>
+                    <td>John Doe</td>
+                    <td>Jane Smith</td>
+                    <td>2023-01-15</td>
+                    <td>2023-01-20</td>
+                    <td><div id="completed_text">Completed</div></td>
+                    <td><button class="btn btn-primary" data-toggle="modal" data-target="#editRequestModal">Edit</button></td> 
+                </tr>
+                <!-- Example Row 2 -->
+                <tr>
+                    <td>Mike Brown</td>
+                    <td>Sara Connor</td>
+                    <td>2023-02-10</td>
+                    <td></td>
+                    <td><div id="in_progress_text">In Progress</div></td>
+                    <td><button class="btn btn-primary" data-toggle="modal" data-target="#editRequestModal">Edit</button></td>
+                </tr>
+                <!-- Example Row 3 -->
+                <tr>
+                    <td>Mike Brown</td>
+                    <td>Sara Connor</td>
+                    <td>2023-02-10</td>
+                    <td></td>
+                    <td><div id="canceled_text">Canceled</div></td>
+                    <td><button class="btn btn-primary" data-toggle="modal" data-target="#editRequestModal">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Modal for Editing Request -->
+        <div class="modal fade" id="editRequestModal" tabindex="-1" role="dialog" aria-labelledby="editRequestModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editRequestModalLabel">Edit Request</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form similar to the table structure -->
+                        <form id="editRequestForm">
+                            <div class="form-group">
+                                <label for="editFrom">From:</label>
+                                <input type="text" class="form-control" id="editFrom" placeholder="Enter Donor ID">
+                            </div>
+                            <div class="form-group">
+                                <label for="editFromName">From Name:</label>
+                                <input type="text" class="form-control" id="editFromName" placeholder="Enter Donor Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="editTo">To:</label>
+                                <input type="text" class="form-control" id="editTo" placeholder="Enter Recipient ID">
+                            </div>
+                            <div class="form-group">
+                                <label for="editToName">To Name:</label>
+                                <input type="text" class="form-control" id="editToName" placeholder="Enter Recipient Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="editDateRequested">Date Requested:</label>
+                                <input type="text" class="form-control" id="editDateRequested" placeholder="Enter Date Requested">
+                            </div>
+                            <div class="form-group">
+                                <label for="editDateFulfillment">Date Fulfillment:</label>
+                                <input type="text" class="form-control" id="editDateFulfillment" placeholder="Enter Date Fulfillment">
+                            </div>
+                            <div class="form-group">
+                                <label for="editStatus">Status:</label>
+                                <input type="text" class="form-control" id="editStatus" placeholder="Enter Status">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

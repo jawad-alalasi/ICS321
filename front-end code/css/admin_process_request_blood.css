@@ -1,0 +1,79 @@
+/* search_history.css */
+body {
+    background-color: #f5f5f5; /* Light gray background for slight contrast */
+}
+
+.container {
+    background-color: #fff; /* White background for the main container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+h1 {
+    color: #007bff; /* Bootstrap primary color for the header */
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#searchForm {
+    margin-bottom: 30px;
+}
+
+#searchResults {
+    margin-top: 20px;
+}
+
+.details-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.details-toggle span.arrow {
+    transition: transform 0.3s ease;
+    font-size: 20px; /* Larger arrow for better visibility */
+}
+
+.collapse.show + .details-toggle .arrow {
+    transform: rotate(180deg); /* Rotate arrow when details are expanded */
+}
+
+.list-group-item {
+    border: none; /* Remove borders from list group items for a cleaner look */
+    background-color: transparent; /* Transparent background for list group items */
+}
+
+.form-control {
+    margin-top: 5px; /* Spacing above form controls */
+    margin-bottom: 5px; /* Spacing below form controls */
+}
+
+/* Custom styling for buttons */
+.btn-primary, .btn-info {
+    border-radius: 4px;
+}
+
+#process_request_button {
+    background-color: #FFA500; /* Change the background color to orange */
+    color: #000000; /* Change the text color to black */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 16px; /* Increase font size */
+    border-radius: 4px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer */
+}
+
+#completed_text {
+    color: green; /* Change the text color to green */
+}
+
+#in_progress_text {
+    color: orange; /* Change the text color to orange */
+}
+
+#canceled_text {
+    color: red; /* Change the text color to red */
+}

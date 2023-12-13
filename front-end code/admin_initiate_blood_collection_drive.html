@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Initiate Blood Collection Drive</title>
+    <link rel="stylesheet" href="css/admin_initiate_blood_collection_drive.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Initiate Blood Collection Drive</h1>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bloodType">Blood Type:</label>
+                <input type="text" class="form-control" id="bloodType" name="bloodType" required>
+            </div>
+
+            <div class="form-group">
+                <label for="storeDate">Store Date:</label>
+                <input type="text" class="form-control" id="storeDate" name="storeDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" class="form-control" id="expiryDate" name="expiryDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="storedLocation">Stored Location:</label>
+                <input type="text" class="form-control" id="storedLocation" name="storedLocation" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Initialize Blood Drive</button>
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Blood Type</th>
+                    <th>Store Date</th>
+                    <th>Expiry Date</th>
+                    <th>Stored Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>A+</td>
+                    <td>2022-08-15</td>
+                    <td>2023-08-15</td>
+                    <td>New York</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>O-</td>
+                    <td>2022-08-15</td>
+                    <td>2023-08-15</td>
+                    <td>Los Angeles</td>
+                </tr>
+                <tr>
+                    <td>Michael Johnson</td>
+                    <td>B+</td>
+                    <td>2022-08-15</td>
+                    <td>2023-08-15</td>
+                    <td>Chicago</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
