@@ -41,11 +41,11 @@ var con = mysql.createConnection({
      app.post('/admin/search', (req, res) => {
       var idhis=req.body.id;
       
-    var vc= `SELECT * FROM MEDICAL_HISTORY WHERE ID="${idhis}" ; SELECT receive.SAMPLE_NUMBER, receive.DATE FROM recipient INNER JOIN person ON recipient.ID = person.ID INNER JOIN receive ON receive.ID = recipient.ID WHERE recipient.ID = "${idhis}"; SELECT donate.DATE, donate.SAMPLE_NUMBER FROM donate WHERE donate.ID = "${idhis}"  `;
+    var vc= `SELECT * FROM MEDICAL_HISTORY WHERE ID="${idhis}" ; SELECT receive.SAMPLE_NUMBER, receive.DATE FROM recipient INNER JOIN person ON recipient.ID = person.ID INNER JOIN receive ON receive.ID = recipient.ID WHERE recipient.ID = "${idhis}"; SELECT donate.DATE, donate.SAMPLE_NUMBER FROM donate WHERE donate.ID = "${idhis}"; select ID,NAME from person WHERE ID = "${idhis}" `;
     /*var c= `SELECT * FROM person WHERE ID="${idhis}" ;SELECT * FROM MEDICAL_HISTORY WHERE ID="${idhis}"`;*/     /*to do multiple stetment must look like this */
       con.query(vc, function(err, result) {
         if (err) throw err;
-        res.render('search_donor_recipient_history0',{title : 'USER DETAILS', users:result[0], m:result[1], v:result[2]} ) ;
+        res.render('search_donor_recipient_history0',{title : 'USER DETAILS', users:result[0], m:result[1], v:result[2], w:result[3]} ) ;
         console.log(result[1]);
 
     });
@@ -309,22 +309,19 @@ app.get('/admin/Process', function(req, res, next) {
 
 app.get('/admin/Process/:id', function(req, res, next) {
   var x=req.params.id;
-  
-  var sqlcoun = `SELECT blood__inventory.SAMPLE_NUMBER, blood__inventory.SAMPLE_DATE, blood_type.TYPE FROM blood_type INNER JOIN person ON blood_type.ID = person.ID INNER JOIN donor ON donor.ID = person.ID INNER JOIN donate  ON donate.ID = donor.ID INNER JOIN blood__inventory ON donate.SAMPLE_NUMBER = blood__inventory.SAMPLE_NUMBER;SELECT request.REQUEST_ID, request.DATE, recipient.ID, blood_type.TYPE FROM recipient INNER JOIN person  ON recipient.ID = person.ID INNER JOIN request ON recipient.REQUEST_ID = request.REQUEST_ID INNER JOIN blood_type ON blood_type.ID = person.ID where person.ID = "${x}";`
+  var sqlcoun = `SELECT blood__inventory.SAMPLE_NUMBER, blood__inventory.SAMPLE_DATE, blood_type.TYPE FROM blood_type INNER JOIN person ON blood_type.ID = person.ID INNER JOIN donor ON donor.ID = person.ID INNER JOIN donate  ON donate.ID = donor.ID INNER JOIN blood__inventory ON donate.SAMPLE_NUMBER = blood__inventory.SAMPLE_NUMBER where person.id != "${x}" ;SELECT request.REQUEST_ID, request.DATE, recipient.ID, blood_type.TYPE FROM recipient INNER JOIN person  ON recipient.ID = person.ID INNER JOIN request ON recipient.REQUEST_ID = request.REQUEST_ID INNER JOIN blood_type ON blood_type.ID = person.ID where person.ID = "${x}";`
   con.query(sqlcoun, function(err, result) {
       if (err) throw err;
       res.render('admin_process_blood_request',  {title : 'USER DETAILS', users:result[0],m:result[1]}); 
       console.log(result);
   });
-   ;
+   
 });
 
-app.get('/admin/Process/:id/:num', function(req, res, next) {
+app.get('/admin/Process/:id/con/:nums', function(req, res, next) {
   var xw=req.params.id;
-  var ws=req.params.num;
-  console.log(xw);
-  console.log(ws);
-  var sqlcounw = `INSERT INTO receive(DATE ,PAYMENT ,SAMPLE_NUMBER,ID ,acepted) VALUES(CURDATE(),0,"${xw}","${ws}",0 );`
+  var ws=req.params.nums;
+  var sqlcounw = `INSERT INTO receive(DATE ,PAYMENT ,SAMPLE_NUMBER, ID ,acepted) VALUES(CURDATE(),0,"${xw}","${ws}",0 );delete from request where REQUEST_ID= "${xw}"`
   con.query(sqlcounw, function(err, result) {
       if (err) throw err;
       res.redirect('/admin/Process')
