@@ -47,13 +47,38 @@
         <!-- Collapsible Section for Search Results -->
         <div>
             <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#searchResults" aria-expanded="false" aria-controls="searchResults">
-                Show Search Results
+                 Search Results
             </button>
-            <div class="collapse" id="searchResults">
+            <div class="collapse show" id="searchResults">
                 <div class="card card-body">
                     
                     <div class="details-toggle" data-toggle="collapse" data-target="#details1" aria-expanded="false" aria-controls="details1">
                         <!-- Main Info -->
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+
+                            <tr>
+                
+                                <th scope="col">ID</th>
+                
+                                <th scope="col">name</th>
+                
+                            </tr>
+                        </thead>
+
+                            <% w.forEach(function(w){ %>
+                
+                                <tr>
+                
+                                    <td><%= w.ID %></td>
+                
+                                    <td><%= w.NAME %></td>
+                
+                                </tr>
+                
+                            <% }); %>
+                
+                        </table>
                         <table class="table table-bordered">
                             <thead class="thead-dark">
 
@@ -65,7 +90,6 @@
                 
                                 <th scope="col">date</th>
                 
-                                <th scope="col">id</th>
                 
                             </tr>
                         </thead>
@@ -80,9 +104,6 @@
                 
                                     <td><%= users.DATE %></td>
                 
-                                    <td>
-                                        <%= users.ID %>
-                                    </td>
                 
                                 </tr>
                 
@@ -99,7 +120,7 @@
                 
 
                 
-                                <th scope="col">date</th>
+                                <th scope="col">Date Recived </th>
                 
 
                 
@@ -137,7 +158,7 @@
                 
 
                 
-                                <th scope="col">date</th>
+                                <th scope="col">Date donated</th>
                 
 
                 
