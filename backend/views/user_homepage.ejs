@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/admin_homepage.css">
+    <title>Blood Donation Center - Administration/Employee Page</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Blood Donation Center - Administration/Employee Page</h1>
+
+        <div class="row">
+            <!-- User Blood Requests -->
+            <div class="col-md-4 mb-4" onclick="location.href='/user/<%= id %>/agree';">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">User Blood Requests</h5>
+                        <p class="card-text">View and manage your blood requests.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User My History -->
+            <div class="col-md-4 mb-4" onclick="location.href='/user/<%= id %>/search';">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">User My History</h5>
+                        <p class="card-text">Access your donation and recipient history.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User My Payments -->
+            <div class="col-md-4 mb-4" onclick="location.href='/user/<%= id %>/pay';">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">User My Payments</h5>
+                        <p class="card-text">Manage your payment details and transactions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User My Profile -->
+            <div class="col-md-4 mb-4" onclick="location.href='/user/<%= id %>/edit';">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">User My Profile</h5>
+                        <p class="card-text">Update and view your personal profile information.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

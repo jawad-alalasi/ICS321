@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Initiate Blood Collection Drive</title>
+    <link rel="stylesheet" href="../css/admin_initiate_blood_collection_drive.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+              <li class="breadcrumb-item"><a href="/admin/report">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container">
+        <h1>Initiate Blood Collection Drive</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="startDate">Start Date:</label>
+                <input type="text" class="form-control" id="startDate" name="from" required>
+            </div>
+
+            <div class="form-group">
+                <label for="endDate">End Date:</label>
+                <input type="text" class="form-control" id="endDate" name="to" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" class="form-control" id="location" name="location" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Initialize Blood Drive</button>
+        </form>
+
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th>Blood Drive Number</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(function(users){ %>
+                    <tr>
+                        <td><%= users.NUMBER %></td>
+    
+                        <td><%= users.FROM_DATE %></td>
+    
+                        <td><%= users.TO_DATE %></td>
+    
+                        <td><%= users.LOCATION %></td>
+
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

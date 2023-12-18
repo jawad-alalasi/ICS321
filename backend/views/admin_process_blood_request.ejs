@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processing...</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/admin_process_request_blood.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+              <li class="breadcrumb-item"><a href="/admin/report">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container mt-4">
+    <h1 class="text-center">Processing...</h1>
+
+    <div class="container">
+        <div class="form-group">
+
+            <label for="requestId">Request ID:</label>
+            <input type="text" id="requestId" name="requestId"  value="<%= m[0].REQUEST_ID %>" readonly class="form-control"><br><br>
+                  
+            <label for="bloodType">Blood Type:</label>
+            <input type="text" id="bloodType" name="bloodType" value="<%= m[0].TYPE %>" readonly class="form-control"><br><br>
+            
+            <label for="dateRequested">Date Requested:</label>
+            <input type="text" id="dateRequested" name="dateRequested" value="<%= m[0].DATE %>"  readonly class="form-control"><br><br>
+        </div>
+    </div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Blood Sample ID</th>
+                <th>Blood Sample Type</th>
+                <th>Date</th>
+                <th>Confirm</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <% users.forEach(function(users){ %>
+                
+                <tr>
+                    
+                    <td> <%= users.SAMPLE_NUMBER %></td>
+
+                    <td><%= users.TYPE %></td>
+
+                    <td><%= users.SAMPLE_DATE %></td>
+
+                    <td><%= users.DATE %></td>
+
+                <td>
+                    <a class="btn btn-primary" href="/admin/Process/<%= m[0].ID %>/<%= users.SAMPLE_NUMBER %>">Process</a>
+                </td>
+    
+            </tr>
+        <% }); %>
+        </tbody>
+    </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

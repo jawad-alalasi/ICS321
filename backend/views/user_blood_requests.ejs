@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation/Receiving Requests</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/admin_search_donor_recipient_history.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/user/1">Home</a></li>
+              <li class="breadcrumb-item"><a href="/user/1">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container">
+        <h1>Blood Donation/Receiving Requests</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sample ID</th>
+                    <th>Blood Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(function(users){ %>
+                
+                    <tr>
+    
+                        <td><%= users.SAMPLE_NUMBER %></td>
+    
+                        <td><%= users.TYPE %></td>
+
+                        <td><a class="btn btn-success" href="/user/<%= users.ID %>/agree/<%= users.SAMPLE_NUMBER %>">Agree</a>
+                            <button class="btn btn-danger">Deny</button>
+
+    
+                    </td>
+                </tr><% }); %>
+             
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

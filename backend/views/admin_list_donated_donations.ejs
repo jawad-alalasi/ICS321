@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week/Month of Blood Donations</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href=".../css/admin_generate_reports.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+              <li class="breadcrumb-item"><a href="/admin/report">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container">
+        <h1>Week/Month of Blood Donations</h1>
+        
+        <button class="btn btn-primary" onclick="generatePastWeek()">Generate the Past Week</button>
+        <button class="btn btn-primary" onclick="generatePastMonth()">Generate the Past Month</button>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Donor name</th>
+                    <th>Sample donated</th>
+                    <th>Donation Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically generated -->
+                <% users.forEach(function(users){ %>
+                
+                    <tr>
+    
+    
+                        <td><%= users.ID %></td>
+    
+                        <td><%= users.NAME %></td>
+    
+                        <td><%= users.SAMPLE_NUMBER %></td>
+                        
+                        <td><%= users.DATE %></td>
+
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        function generatePastWeek() {
+            // TODO: Implement logic to generate data for the past week
+        }
+        
+        function generatePastMonth() {
+            // TODO: Implement logic to generate data for the past month
+        }
+    </script>
+</body>
+</html>

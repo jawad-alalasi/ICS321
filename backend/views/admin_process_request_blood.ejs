@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/admin_process_request_blood.css">
+    <title>Process Blood Donation Request</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+              <li class="breadcrumb-item"><a href="/admin/report">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container mt-4">
+        <h1>Process Blood Donation Request</h1>
+
+        <!-- Table for Displaying Requests -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>Recipient ID</th>
+                    <th>Recipient Name</th>
+                    <th>Blood Type</th>
+                    <th>Date requested</th>
+                    <th>Process</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Row 1 -->
+                <% users.forEach(function(users){ %>
+                
+                    <tr>
+    
+                        <td><%= users.REQUEST_ID %></td>
+    
+                        <td><%= users.ID %></td>
+
+                        <td><%= users.name %></td>
+    
+                        <td><%= users.TYPE %></td>
+    
+                        <td><%= users.DATE %></td>
+
+                    <td>
+                        <a class="btn btn-primary" href="/admin/Process/<%= users.ID %>">Process</a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

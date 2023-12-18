@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Donor/Recipient Information</title>
+</head>
+
+<body>    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+          <li class="breadcrumb-item"><a href="/admin/report">back</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a href="/">log out</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </nav>
+    <div class="container mt-4">
+        <h1>Donor/Recipient Information</h1>
+
+        <!-- Button to Open Modal for Adding Donor/Recipient -->
+        <a class="btn btn-primary" href="/admin/persons/add">Add Donor/Recipient</a>
+
+
+        <!-- Table for Displaying Donor/Recipient -->
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Blood Type</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Row -->
+                <% users.forEach(function(users){ %>
+                
+                    <tr>
+    
+                        <td><%= users.NAME %></td>
+    
+                        <td><%= users.AGE %></td>
+    
+                        <td><%= users.TYPE %></td>
+    
+                        <td><%= users.EMAIL %></td>
+
+                        <td><%= users.PHONE %></td>
+
+                        <td><%= users.ADDRESS %></td>
+
+                    <td>
+                        <a class="btn btn-primary" href="/admin/edit/<%= users.ID %>">Edit</a>
+                        <button class="btn btn-danger" data-toggle="modal"
+                            data-target="#deleteUserModal<%= users.ID %>">Delete</button>
+                    </td>
+                </tr>
+                <% }); %>
+                <!-- Additional rows for other donors/recipients -->
+            </tbody>
+        </table>
+
+        <% users.forEach(function(users){ %>
+
+            <div class="modal fade" id="deleteUserModal<%= users.ID %>" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteUserModalLabel">Confirm Delete</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this user?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-danger" id="confirmDelete" href="/admin/persons/delete/<%= users.ID %>">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+
+ 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

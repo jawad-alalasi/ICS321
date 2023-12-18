@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add System User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/admin_donor_recipient_information.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+              <li class="breadcrumb-item"><a href="/admin/report">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container">
+        <h1>Add System User</h1>
+        <form method="post">
+
+            <div class="form-group">
+                <label for="username">id:</label>
+                <input type="text" class="form-control" id="id" name="id" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="Role">Role:</label>
+                <input type="text" class="form-control" id="Role" name="Role" required>
+            </div>
+
+            <button type="button" class="btn btn-secondary" onclick="cancel()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Add System User</button>
+        </form>
+    </div>
+
+    <script>
+        function cancel() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

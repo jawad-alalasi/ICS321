@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/admin_system_user_information.css">
+    <title>System User Information</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+              <li class="breadcrumb-item"><a href="/admin/report">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container mt-4">
+        <h1>System User Information</h1>
+
+        <!-- Button to Add User -->
+        <button type="button" class="btn btn-primary" onclick="location.href='/admin/users/add'">
+            Add User
+        </button>
+
+        <!-- Table for Displaying Users -->
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Row -->
+                <% users.forEach(function(users){ %>
+                
+                    <tr>
+    
+    
+                        <td><%= users.EMAIL %></td>
+    
+                        <td><%= users.USERNAME %></td>
+    
+                        <td><%= users.ROLE %></td>
+
+                    <td>
+                        <a class="btn btn-primary" href="/admin/user/edit/<%= users.ID %>">Edit</a>
+                        <button class="btn btn-danger" data-toggle="modal"
+                            data-target="#deleteUserModal<%= users.ID %>">Delete</button>
+                    </td>
+                </tr>
+                <% }); %>
+                <!-- Additional rows for other users -->
+            </tbody>
+        </table>
+
+        <!-- Modal for Delete Confirmation -->
+        <% users.forEach(function(users){ %>
+
+            <div class="modal fade" id="deleteUserModal<%= users.ID %>" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteUserModalLabel">Confirm Delete</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this user?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-danger" id="confirmDelete" href="/admin/user/delete/<%= users.ID %>">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

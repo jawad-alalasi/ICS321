@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/admin_search_donor_recipient_history.css">
+    <title>My History</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/user/1">Home</a></li>
+              <li class="breadcrumb-item"><a href="/user/1">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container mt-4">
+        <h1>Your History</h1>
+
+        <!-- Table for Search Results -->
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+
+            <tr>
+
+                <th scope="col">medical_id</th>
+
+                <th scope="col">history</th>
+
+                <th scope="col">date</th>
+
+            </tr>
+        </thead>
+
+            <% users.forEach(function(users){ %>
+
+                <tr>
+
+                    <td><%= users.MEDICAL_ID %></td>
+
+                    <td><%= users.HISTORY %></td>
+
+                    <td><%= users.DATE %></td>
+
+
+                </tr>
+
+            <% }); %>
+
+        </table>
+        <div>                      
+            <table class="table table-bordered">
+            <thead class="thead-dark">
+
+            <tr>
+
+                <th scope="col">Sample Recived</th>
+
+
+
+                <th scope="col">date</th>
+
+
+
+            </tr>
+        </thead>
+
+            <% m.forEach(function(m){ %>
+
+                <tr>
+
+                    <td><%= m.SAMPLE_NUMBER %></td>            
+
+                    <td><%= m.DATE %></td>
+
+
+                </tr>
+
+            <% }); %>
+
+        </table>
+
+
+
+
+        </div>
+
+
+        <div>                      
+            <table class="table table-bordered">
+            <thead class="thead-dark">
+
+            <tr>
+
+                <th scope="col">Sample donated</th>
+
+
+
+                <th scope="col">date</th>
+
+
+
+            </tr>
+        </thead>
+
+            <% v.forEach(function(v){ %>
+
+                <tr>
+
+                    <td><%= v.SAMPLE_NUMBER %></td>            
+
+                    <td><%= v.DATE %></td>
+
+
+                </tr>
+
+            <% }); %>
+
+        </table>
+
+
+
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

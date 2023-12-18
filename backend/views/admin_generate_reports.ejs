@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Reports</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/admin_generate_reports.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+              <li class="breadcrumb-item"><a href="/admin/report">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container">
+            <h1>Generate Reports</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="/admin/recived" class="btn btn-primary">List All Blood Donations <b>Received</b> in a Week/Month</a>
+                </div>
+                <div class="col-md-6">
+                    <a href="/admin/donated" class="btn btn-primary">List All Blood Donations <b>Donated</b> in a Week/Month</a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <a href="/admin/amount" class="btn btn-primary">List Aggregated Amount Available for Each Blood Type</a>
+                </div>
+                <div class="col-md-6">
+                    <a href="/admin/Paymentcon" class="btn btn-primary">List All Payments Confirmed as Completed</a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <a href="/admin/collcot" class="btn btn-primary">Collection Drive Report</a>
+                </div>
+            </div>
+        </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

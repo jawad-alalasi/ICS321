@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit System User Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href=".../css/admin_donor_recipient_information.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit System User Information</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="<%= users[0].EMAIL %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" value="<%= users[0].USERNAME %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <input type="text" class="form-control" id="role" name="role" value="<%= users[0].ROLE %>" required>
+            </div>
+
+            <button type="button" class="btn btn-secondary" onclick="cancel()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Edit System User</button>
+        </form>
+    </div>
+
+    <script>
+        function cancel() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

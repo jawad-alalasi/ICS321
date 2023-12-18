@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/search_donor_recipient_history.css">
+    <title>Search History</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+              <li class="breadcrumb-item"><a href="/admin/report">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container mt-4">
+        <h1>Search Donor/Recipient History</h1>
+
+        <!-- Search Form -->
+        <form id="searchForm" class="mb-4" method="post" action="/admin/search">
+            <div class="form-group" >
+                <label for="id">ID:</label>
+                <input type="text" class="form-control" name="id" placeholder="Enter ID">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Collapsible Section for Search Results -->
+        <div>
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#searchResults" aria-expanded="false" aria-controls="searchResults">
+                Show Search Results
+            </button>
+            <div class="collapse" id="searchResults">
+                <div class="card card-body">
+                    
+                    <div class="details-toggle" data-toggle="collapse" data-target="#details1" aria-expanded="false" aria-controls="details1">
+                        <!-- Main Info -->
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+
+                            <tr>
+                
+                                <th scope="col">medical_id</th>
+                
+                                <th scope="col">history</th>
+                
+                                <th scope="col">date</th>
+                
+                                <th scope="col">id</th>
+                
+                            </tr>
+                        </thead>
+
+                            <% users.forEach(function(users){ %>
+                
+                                <tr>
+                
+                                    <td><%= users.MEDICAL_ID %></td>
+                
+                                    <td><%= users.HISTORY %></td>
+                
+                                    <td><%= users.DATE %></td>
+                
+                                    <td>
+                                        <%= users.ID %>
+                                    </td>
+                
+                                </tr>
+                
+                            <% }); %>
+                
+                        </table>
+                        <div>                      
+                            <table class="table table-bordered">
+                            <thead class="thead-dark">
+
+                            <tr>
+                
+                                <th scope="col">Sample Recived</th>
+                
+
+                
+                                <th scope="col">date</th>
+                
+
+                
+                            </tr>
+                        </thead>
+
+                            <% m.forEach(function(m){ %>
+                
+                                <tr>
+                
+                                    <td><%= m.SAMPLE_NUMBER %></td>            
+                
+                                    <td><%= m.DATE %></td>
+                
+                
+                                </tr>
+                
+                            <% }); %>
+                
+                        </table>
+
+
+
+
+                        </div>
+
+
+                        <div>                      
+                            <table class="table table-bordered">
+                            <thead class="thead-dark">
+
+                            <tr>
+                
+                                <th scope="col">Sample donated</th>
+                
+
+                
+                                <th scope="col">date</th>
+                
+
+                
+                            </tr>
+                        </thead>
+
+                            <% v.forEach(function(v){ %>
+                
+                                <tr>
+                
+                                    <td><%= v.SAMPLE_NUMBER %></td>            
+                
+                                    <td><%= v.DATE %></td>
+                
+                
+                                </tr>
+                
+                            <% }); %>
+                
+                        </table>
+
+
+
+
+                        </div>
+
+
+                
+                    </div>
+                    
+                    <!-- Individual Entry Collapse -->
+
+                    <!-- Repeat for other entries -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

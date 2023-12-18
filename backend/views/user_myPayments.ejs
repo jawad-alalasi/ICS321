@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Payments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/admin_donor_recipient_information.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/user/1">Home</a></li>
+              <li class="breadcrumb-item"><a href="/user/1">back</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="/">log out</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </nav>
+    <div class="container">
+        <h1>My Payments</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date Received</th>
+                    <th>Sample ID</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(function(users){ %>
+                
+                    <tr>
+    
+                        <td><%= users.DATE %></td>
+    
+                        <td><%= users.SAMPLE_NUMBER %></td>
+    
+                        <td><%= users.TYPE %></td>
+
+                        <td><a class="btn btn-primary" href="/user/<%= users.ID %>/pay/<%= users.SAMPLE_NUMBER %>">Pay</a>
+                    
+                    </td>
+                </tr><% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
